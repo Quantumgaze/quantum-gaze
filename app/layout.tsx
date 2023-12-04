@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter,Syncopate } from 'next/font/google'
 import './globals.css'
+import { ClerkProvider } from '@clerk/nextjs'
+import Navbar from '@/components/miscellaneous/Navbar'
+import Footer from '@/components/miscellaneous/Footer'
 const inter = Inter({ subsets: ['latin'] })
 const syncopate = Syncopate({weight:'400',subsets:['latin']})
 
@@ -10,13 +13,19 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
+    children,
+}:{
+    children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className={inter.className +" bg-zinc-800"}>{children}</body>
-    </html>
-  )
+    return (
+        <ClerkProvider>
+            <html lang="en">
+                <body className={inter.className +" bg-zinc-800"}>
+                    <Navbar/>
+                    {children}
+                    <Footer/>
+                </body>
+            </html>
+        </ClerkProvider>
+    )
 }

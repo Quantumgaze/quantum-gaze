@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '@/components/ui/Button'
+import { UserButton } from "@clerk/nextjs";
 
 export default function Navbar() {
     return (
@@ -20,8 +21,9 @@ export default function Navbar() {
             </div>
             <div className="auth-nav flex items-center">
                 {/* user?( */}
-                <Button value={"Login"} />
-                <Button value={"sign Up"}/>
+                {/* <Button value={"Login"} /> */}
+                {/* <Button value={"sign Up"}/> */}
+                <UserButton afterSignOutUrl="/"/>
                 {/* ):(<Button/>) */}
                 
             </div>
