@@ -8,7 +8,7 @@ Quantum Gaze is an AI prompt selling marketplace where users can create and sell
 
 - **TypeScript:** TypeScript is used to add static typing to the JavaScript code, enhancing the development experience and catching potential errors early in the process.
 
-- **Shadcn:** [Shadcn](#) (please replace with the actual link) is used for [describe its purpose in your project].
+- **Shadcn:** Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source
 
 - **Clerk Auth:** Clerk Auth is utilized for authentication, ensuring secure and reliable user authentication and authorization processes.
 
