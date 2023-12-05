@@ -1,12 +1,13 @@
-import { UserButton } from '@clerk/nextjs'
-import React from 'react'
+import Navbar from '@/components/Navbar'
+import Container from '@/components/ui/container'
 
 const MyHomePage = () => {
     return (
-        <>
-            <div>MyHomePage</div>
-            <UserButton afterSignOutUrl="/" />
-        </>
+        <Container>
+            <div>
+                This is a protected route
+            </div>
+        </Container>
     )
 }
 
