@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter } from 'next/navigation'
-import { Button } from './ui/button';
+import { Button } from '../../components/ui/button';
 
 export default function Navbar() {
 
@@ -24,10 +24,6 @@ export default function Navbar() {
                 </div>
             </div>
             <div className="auth-nav flex items-center">
-                {/* user?( */}
-                {/* <Button value={"Login"} />
-                <Button value={"sign Up"} /> */}
-                {/* ):(<Button/>) */}
                 <Button onClick={() => router.push('/sign-in')} className='mx-5'>Login</Button>
                 <Button onClick={() => router.push('/sign-up')}>SignUp</Button>
             </div>
