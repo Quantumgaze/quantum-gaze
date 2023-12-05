@@ -1,8 +1,32 @@
+"use client"
 import Footer from '@/components/Footer'
 import Navbar from '@/components/navbar'
-import React from 'react'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
 
 export default function Landing() {
+
+    const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
+
+    useEffect(() => {
+        const updateSize = () => {
+            const parentDiv = document.querySelector('.right');
+            if (parentDiv) {
+                const { clientWidth, clientHeight } = parentDiv;
+                setParentSize({ width: clientWidth, height: clientHeight });
+            }
+        };
+
+        updateSize();
+        window.addEventListener('resize', updateSize);
+
+        return () => {
+            window.removeEventListener('resize', updateSize);
+        };
+    }, []); // Run only once on component mount
+
+
+
     return (
         <main className='bg-black'>
             <Navbar />
@@ -12,8 +36,16 @@ export default function Landing() {
                     <div>CREATE</div>
                     <div>SHARE</div>
                 </div>
-                <div className="right bg-zinc-500 rounded-2xl w-4/12 aspect-[6/7]">
-                    {/* <Image/> */}
+                <div className="right bg-zinc-500 rounded-2xl w-4/12 aspect-[6/8]">
+                    <div className="rounded-2xl overflow-hidden">
+                        <Image
+                            src="/world2.jpg"
+                            width={parentSize.width}
+                            height={parentSize.height}
+                            alt="Picture of the author"
+                        />
+                    </div>
+
                 </div>
             </div>
             <div className="s-1 grid grid-cols-2">
