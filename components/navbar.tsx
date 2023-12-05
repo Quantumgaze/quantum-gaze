@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { Button } from './ui/button';
+import { UserButton } from '@clerk/nextjs';
 
 export default function Navbar() {
 
