@@ -1,7 +1,11 @@
+import { ClerkProvider, UserButton } from "@clerk/nextjs";
+import Landing from "../landing/page";
+
 export default function Home() {
     return (
-        <div className="p-4">
-            HomePage Component
-        </div>
+        <>
+            <Landing />
+            <UserButton afterSignOutUrl="/" />
+        </>
     )
 }
