@@ -69,9 +69,9 @@ export default function Landing() {
 
                         </div>
                         <div className="prompt  top-0 p-4 border-px ">
-                            <span className='text-xl  my-2 text-white block '>Prompt</span>
+                            <span className='text-xl  my-2 text-white block '>Prompt-1</span>
                             <span className='text-zinc-400'>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, aliquam? Porro, sequi repudiandae rerum doloremque distinctio illum libero iste voluptatem. Culpa necessitatibus harum accusamus quia nihil cumque doloribus temporibus ipsum autem error at est pariatur iste eius, repellat voluptas vero tempora adipisci officia dolores maxime voluptates iusto quo itaque. Mollitia.
+                                Portrait painting of batman with black leather armor, ultra realistic, concept art, intricate details, eerie, highly detailed, photorealistic, octane render, 8 k, unreal engine. art by artgerm and Jim Lee, Pen and Ink Drawing, City Scape, Full Body, Night time
                             </span>
                         </div>
                     </div>
@@ -80,9 +80,9 @@ export default function Landing() {
 
                         </div>
                         <div className="prompt  top-0 p-4 border-px ">
-                            <span className='text-xl  my-2 text-white block '>Prompt</span>
+                            <span className='text-xl  my-2 text-white block '>Prompt-2</span>
                             <span className='text-zinc-400'>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, aliquam? Porro, sequi repudiandae rerum doloremque distinctio illum libero iste voluptatem. Culpa necessitatibus harum accusamus quia nihil cumque doloribus temporibus ipsum autem error at est pariatur iste eius, repellat voluptas vero tempora adipisci officia dolores maxime voluptates iusto quo itaque. Mollitia.
+                                illustration of Washington Square Park in the style of propaganda poster, flat colours, detailed, sunny day, attention to detail, 8k
                             </span>
                         </div>
                     </div>
@@ -91,9 +91,9 @@ export default function Landing() {
 
                         </div>
                         <div className="prompt  top-0 p-4 border-px ">
-                            <span className='text-xl  my-2 text-white block '>Prompt</span>
+                            <span className='text-xl  my-2 text-white block '>Prompt-3</span>
                             <span className='text-zinc-400'>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, aliquam? Porro, sequi repudiandae rerum doloremque distinctio illum libero iste voluptatem. Culpa necessitatibus harum accusamus quia nihil cumque doloribus temporibus ipsum autem error at est pariatur iste eius, repellat voluptas vero tempora adipisci officia dolores maxime voluptates iusto quo itaque. Mollitia.
+                                A stunning minimal PC case designed by Dieter Rams, BRAUN. Product ad retro. industrial design inspiration, warm retro natural lighting, on desk, natural scene in the home.
                             </span>
                         </div>
                     </div>
