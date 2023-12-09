@@ -1,8 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Quantum Gaze
 
+Quantum Gaze is an AI prompt selling marketplace where users can create and sell their AI prompts. This platform is built with a modern tech stack to provide a seamless and secure experience for both prompt creators and buyers.
+
+## Tech Stack
+
+- **Next.js 13:** The frontend of Quantum Gaze is developed using Next.js 13, providing a fast and efficient user interface with server-side rendering and other advanced features.
+
+- **TypeScript:** TypeScript is used to add static typing to the JavaScript code, enhancing the development experience and catching potential errors early in the process.
+
+- **Shadcn:** Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source
+
+- **Clerk Auth:** Clerk Auth is utilized for authentication, ensuring secure and reliable user authentication and authorization processes.
+
+- **MongoDB:** MongoDB is chosen as the database to store and manage data efficiently. Its flexibility and scalability make it suitable for Quantum Gaze's dynamic data requirements.
+
+- **Prisma ORM:** Prisma ORM is used for database access and manipulation, providing a type-safe and ergonomic way to interact with the MongoDB database.
 ## Getting Started
 
-First, run the development server:
+To run Quantum Gaze locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Quantumgaze/quantum-gaze.git
+
+2.run the development server:
 
 ```bash
 npm run dev
