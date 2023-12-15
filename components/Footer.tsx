@@ -1,6 +1,10 @@
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+
 export default function Footer() {
     return (
-        <div className="h-40 px-32 w-full flex items-center justify-between">
+        <div className="h-40 px-32 w-full flex items-center justify-between bg-zinc-800">
             <div className="logo-container flex items-center ">
                 <div className="logo m-2 mr-4 relative flex items-center ">
                     <div className=" w-12 h-12 rounded-full bg-gradient-to-br from-fuchsia-600 to-pink-700"></div>
@@ -10,11 +14,11 @@ export default function Footer() {
                     Quantumgaze
                 </div>
             </div>
-            <div className="social-nav ">
-                <a href="" className="w-8 h-8 m-2 bg-white inline-block"></a>
-                <a href="" className="w-8 h-8 m-2 bg-white inline-block"></a>
-                <a href="" className="w-8 h-8 m-2 bg-white inline-block"></a>
-                <a href="" className="w-8 h-8 m-2 bg-white inline-block"></a>
+            <div className="social-nav dark">
+                <Link href={'/about'}><Button variant={'link'} >About</Button></Link>
+                <Link href={'/contact'}><Button variant={'link'} >Contact</Button></Link>
+                <Link href={'/marketplace'}><Button variant={'link'} >Marketplace</Button></Link>
+                <Link href={'https:/github.com/Quantumgaze'} target="_blank"><Button variant={'link'} >Github</Button></Link>
             </div>
         </div>
     )

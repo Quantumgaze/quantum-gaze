@@ -10,7 +10,7 @@ export default function Landing() {
     const { userId } = useAuth();
 
     return (
-        <main className=''>
+        <main>
             <div className='xs:px-8 sm:px-16 md:px-32 py-8 h-24 flex items-center justify-between bg-zinc-900'>
                 <div className="logo-container flex items-center ">
                     <div className="logo m-2 mr-4 relative flex items-center">

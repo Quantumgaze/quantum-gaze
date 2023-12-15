@@ -1,13 +1,19 @@
-import Navbar from '@/components/Navbar'
-import Container from '@/components/ui/container'
+import PromptForm from "@/components/PromptForm"
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import Carousel from "@/components/ui/caroseul"
+import { CircleDot } from "lucide-react"
 
 const MyHomePage = () => {
     return (
-        <Container>
-            <div>
-                This is a protected route
-            </div>
-        </Container>
+        <div className="bg-zinc-800 px-32" >
+            <PromptForm/>
+            
+        </div>
     )
 }
 
