@@ -1,6 +1,5 @@
 import Link from "next/link"
 
-import Container from "@/components/ui/container"
 import { cn } from "@/lib/utils";
 export const revalidate = 0;
 
@@ -15,7 +14,7 @@ const Navbar = async () => {
                     </div>
                     <p className="font-bold text-xl">Quantum Gaze - An AI Prompt MarketPlace</p>
                 </Link>
-                <Link href="/about"  className={cn("mx-9 font-medium transition-colors hover:text-black")}>About</Link>
+                <Link href="/about" className={cn("mx-9 font-medium transition-colors hover:text-black")}>About</Link>
             </div>
         )
     } catch (error) {

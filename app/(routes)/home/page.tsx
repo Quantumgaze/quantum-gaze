@@ -1,5 +1,5 @@
-import Navbar from '@/components/Navbar'
 import Container from '@/components/ui/container'
+import { UserButton } from '@clerk/nextjs'
 
 const MyHomePage = () => {
     return (
@@ -7,6 +7,7 @@ const MyHomePage = () => {
             <div>
                 This is a protected route
             </div>
+            <UserButton afterSignOutUrl='/'></UserButton>
         </Container>
     )
 }
