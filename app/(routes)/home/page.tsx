@@ -11,8 +11,8 @@ import { CircleDot } from "lucide-react"
 const MyHomePage = () => {
     return (
         <div className="bg-zinc-800 px-32" >
-            <PromptForm/>
-            
+            <PromptForm />
+
         </div>
     )
 }

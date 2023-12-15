@@ -1,6 +1,5 @@
 import Link from "next/link"
 
-import Container from "@/components/ui/container"
 import { cn } from "@/lib/utils";
 import { UserButton } from "@clerk/nextjs";
 export const revalidate = 0;
@@ -20,7 +19,7 @@ const Navbar = async () => {
                         </div>
                     </div>
                 </Link>
-                <UserButton afterSignOutUrl="/" />
+                <Link href="/about" className={cn("mx-9 font-medium transition-colors hover:text-black")}>About</Link>
             </div>
         )
     } catch (error) {
