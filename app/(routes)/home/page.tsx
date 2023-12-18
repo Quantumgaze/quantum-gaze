@@ -1,12 +1,4 @@
 import PromptForm from "@/components/PromptForm"
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
-import Carousel from "@/components/ui/caroseul"
-import { CircleDot } from "lucide-react"
 
 const MyHomePage = () => {
     return (
