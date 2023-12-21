@@ -6,7 +6,7 @@ import Link from "next/link"
 
 const MyHomePage = () => {
     return (
-        <div className="bg-zinc-800 px-8 xs:px-12 sm:px-16 md:px-24 lg:px-32" >
+        <div className="bg-zinc-950 px-8 xs:px-12 sm:px-16 md:px-24 lg:px-32" >
             <PromptForm/>
             <Marketplace/>
         </div>

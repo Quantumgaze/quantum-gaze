@@ -13,8 +13,8 @@ export default function PromptForm() {
 
         <div className="prompt-container py-32 lg:px-16 ">
             <div className="prompt-wrapper relative mx-auto ">
-                <TextareaAutoresize className='bg-zinc-700 w-full p-3 rounded text-md resize-none text-white' />
-                <Button className='bg-zinc-600 absolute right-3 bottom-4'  size={'pill'}>
+                <TextareaAutoresize className='bg-zinc-800 w-full p-3 rounded text-md resize-none text-white' />
+                <Button className='bg-zinc-700 absolute right-3 bottom-4'  size={'pill'}>
                     generate
                 </Button>
             </div>
