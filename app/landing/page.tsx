@@ -1,9 +1,9 @@
 "use client";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Button } from "@/components/ui/Button"
 import { useAuth } from '@clerk/nextjs';
 import Link from 'next/link'
+import { Button } from '@/components/ui/button';
 export default function Landing() {
 
     const router = useRouter();
@@ -30,8 +30,8 @@ export default function Landing() {
                             </>
                             :
                             <>
-                                <Button variant={'outline'} onClick={() => router.push('/sign-in')} className='mx-5'>Login</Button>
-                                <Button variant={'outline'} onClick={() => router.push('/sign-up')}>SignUp</Button>
+                                <Button variant={'default'} onClick={() => router.push('/sign-in')} className='mx-5 border-2'>Login</Button>
+                                <Button variant={'theme'} onClick={() => router.push('/sign-up')} className='font-semibold'>SignUp</Button>
                             </>
 
                     }
