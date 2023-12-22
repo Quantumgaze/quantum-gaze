@@ -21,12 +21,12 @@ export default function PromptForm() {
         </div>
         <Accordion type="single" collapsible className="w-full dark" defaultValue='item-1'>
             <AccordionItem value="item-1"  className="border-none ">
-                <AccordionTrigger className=''> <CircleDot className="mx-4"/> Select the Image Generation Engines</AccordionTrigger>
+                <AccordionTrigger> <CircleDot className="mx-4"/> Select the Image Generation Engines</AccordionTrigger>
                 <AccordionContent>
                     <Carousel className="mx-4" buttons={false} >
                         {
                             [1,2,3,4,5,6].map((index)=>(
-                                <div className='flex-[0_0_256px]'>
+                                <div className='flex-[0_0_256px]' key={index}>
                                     <input type="checkbox" className='hidden peer' name="" id={"eng"+index} />
                                     <label htmlFor={"eng"+index} className='embla__slide min-w-0 flex flex-col items-center justify-center h-44 border-2 border-transparent peer-checked:border-white text-zinc-300 peer-checked:text-white bg-zinc-700/50 rounded-lg p-2 mx-4 '>
                                         <Image src='/stable_diffusion.png' className='w-12 select-none' width={20} height={20} alt={'stable diffusion'}/>
