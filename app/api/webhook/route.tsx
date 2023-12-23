@@ -46,13 +46,13 @@ export async function POST(req: Request) {
       status: 400
     })
   }
- 
+  
   // Get the ID and type
+  console.log(evt.data);
   const { id } = evt.data;
   const eventType = evt.type;
  
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
-  console.log('Webhook body:', body)
+    
  
   return new Response('', { status: 200 })
 }
