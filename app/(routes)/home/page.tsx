@@ -4,16 +4,25 @@ import PhotoCollage from "@/components/ui/photo-collage"
 import { ArrowUpRight, CircleDot } from "lucide-react"
 import Link from "next/link"
 
-const MyHomePage = () => {
+const MyHomePage = ({
+    params
+}: {
+    params: { userId: string }
+}) => {
+
+    console.log(params)
     return (
         <div className="bg-zinc-0 px-8 xs:px-12 sm:px-16 md:px-24 lg:px-32 bg-zinc-950" >
-            <PromptForm/>
-            <Marketplace/>
+            <Link href={`/generateImage/${params.userId}`} className="title flex  py-4 text-lg text-white">
+                <CircleDot className="mx-4" /> <span>Generate your AI Image</span><ArrowUpRight className="mx-1" />
+            </Link>
+            <PromptForm />
+            <Marketplace />
         </div>
     )
 }
 
-export default MyHomePage       
+export default MyHomePage
 
 
 function Marketplace() {
@@ -21,8 +30,9 @@ function Marketplace() {
         <div className="py-8">
             <Link href={'/marketplace'} className="title flex  py-4 text-lg text-white">
 
-                <CircleDot className="mx-4"/> <span>Explore our prompt Marketplace</span><ArrowUpRight className="mx-1"/>
+                <CircleDot className="mx-4" /> <span>Explore our prompt Marketplace</span><ArrowUpRight className="mx-1" />
             </Link>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 dark text-white">
                 <PhotoCollage className="max-w-96 aspect-[3.5/3] rounded-2xl m-2 " >
                     <div className="bg-zinc-950 flex items-center justify-center">1</div>
