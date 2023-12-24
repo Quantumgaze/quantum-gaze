@@ -63,11 +63,11 @@ async function handleUserCreated(evt:WebhookEvent) {
 
   const newUser = getUserDataFromEvent(evt);
   console.log(newUser);
-  prisma.logs.create({
-    data:{
-        body:"user created"
-    }
-  })
+//   prisma.logs.create({
+//     data:{
+//         body:"user created"
+//     }
+//   })
   
 
   try {
@@ -82,11 +82,11 @@ async function handleUserUpdated(evt:WebhookEvent) {
   const updatedUser = getUserDataFromEvent(evt);
   console.log(updatedUser);
   
-  prisma.logs.create({
-    data:{
-        body:"user updated"
-    }
-  })
+//   prisma.logs.create({
+//     data:{
+//         body:"user updated"
+//     }
+//   })
   try {
 
     console.log("Successfully updated user!");
@@ -95,6 +95,21 @@ async function handleUserUpdated(evt:WebhookEvent) {
   }
 }
 
+async function handleUserDeleted(evt:WebhookEvent) {
+
+    const deletedUser = getUserDataFromEvent(evt);    
+    const Logs = await prisma.logs.create({
+        data: {
+          body:"user deleted"
+        }
+      })
+    try {
+  
+      console.log("Successfully updated user!");
+    } catch (err) {
+      console.error(`Failed to update user: ${err}`);
+    }
+  }
 exports = async function syncClerkData(request:NextRequest, response:NextResponse) {
 
   switch (evt.type) {
@@ -104,6 +119,10 @@ exports = async function syncClerkData(request:NextRequest, response:NextRespons
       break;
     case "user.updated":
       await handleUserUpdated(evt);
+    //   response.setStatusCode(200);
+      break;
+    case "user.deleted":
+      await handleUserDeleted(evt);
     //   response.setStatusCode(200);
       break;
     default:
