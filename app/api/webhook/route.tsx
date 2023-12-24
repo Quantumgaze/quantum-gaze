@@ -1,6 +1,7 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
+import { NextRequest, NextResponse } from 'next/server'
  
 export async function POST(req: Request) {
  
@@ -27,6 +28,7 @@ export async function POST(req: Request) {
   // Get the body
   const payload = await req.json()
   const body = JSON.stringify(payload);
+  
  
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
@@ -48,12 +50,58 @@ export async function POST(req: Request) {
   }
   
   // Get the ID and type
-  console.log(evt.data);
-  const { id } = evt.data;
-  const eventType = evt.type;
- 
+
+function getUserDataFromEvent(evt:WebhookEvent) {
+  return {
+    clerkUserId: evt.data.id,
+    object:evt.data.object
+  };
+}
+
+async function handleUserCreated(evt:WebhookEvent) {
+
+  const newUser = getUserDataFromEvent(evt);
+  console.log(newUser);
+  
+
+  try {
     
- 
-  return new Response('', { status: 200 })
+  } catch (err) {
+    console.error(`Failed to insert user: ${err}`);
+  }
+}
+
+async function handleUserUpdated(evt:WebhookEvent) {
+
+  const updatedUser = getUserDataFromEvent(evt);
+  console.log(updatedUser);
+  
+
+  try {
+
+    console.log("Successfully updated user!");
+  } catch (err) {
+    console.error(`Failed to update user: ${err}`);
+  }
+}
+
+exports = async function syncClerkData(request:NextRequest, response:NextResponse) {
+
+  switch (evt.type) {
+    case "user.created":
+      await handleUserCreated(evt);
+    //   response.status();
+      break;
+    case "user.updated":
+      await handleUserUpdated(evt);
+    //   response.setStatusCode(200);
+      break;
+    default:
+      console.log(`Unhandled event type: ${evt.type}`);
+    //   response.setStatusCode(400);
+  }
+
+}
+    
 }
  
