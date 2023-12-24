@@ -2,6 +2,7 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import { NextRequest, NextResponse } from 'next/server'
+import { prisma } from '@/lib/prisma'
  
 export async function POST(req: Request) {
  
@@ -62,6 +63,11 @@ async function handleUserCreated(evt:WebhookEvent) {
 
   const newUser = getUserDataFromEvent(evt);
   console.log(newUser);
+  prisma.logs.create({
+    data:{
+        body:"user created"
+    }
+  })
   
 
   try {
@@ -76,7 +82,11 @@ async function handleUserUpdated(evt:WebhookEvent) {
   const updatedUser = getUserDataFromEvent(evt);
   console.log(updatedUser);
   
-
+  prisma.logs.create({
+    data:{
+        body:"user updated"
+    }
+  })
   try {
 
     console.log("Successfully updated user!");
@@ -97,6 +107,11 @@ exports = async function syncClerkData(request:NextRequest, response:NextRespons
     //   response.setStatusCode(200);
       break;
     default:
+        prisma.logs.create({
+            data:{
+                body:"something bad happen"
+            }
+        })
       console.log(`Unhandled event type: ${evt.type}`);
     //   response.setStatusCode(400);
   }
