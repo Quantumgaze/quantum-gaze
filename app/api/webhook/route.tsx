@@ -63,11 +63,11 @@ async function handleUserCreated(evt:WebhookEvent) {
 
   const newUser = getUserDataFromEvent(evt);
   console.log(newUser);
-//   prisma.logs.create({
-//     data:{
-//         body:"user created"
-//     }
-//   })
+  prisma.logs.create({
+    data:{
+        body:"user created"
+    }
+  })
   
 
   try {
@@ -82,11 +82,11 @@ async function handleUserUpdated(evt:WebhookEvent) {
   const updatedUser = getUserDataFromEvent(evt);
   console.log(updatedUser);
   
-//   prisma.logs.create({
-//     data:{
-//         body:"user updated"
-//     }
-//   })
+  prisma.logs.create({
+    data:{
+        body:"user updated"
+    }
+  })
   try {
 
     console.log("Successfully updated user!");
