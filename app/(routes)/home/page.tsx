@@ -3,6 +3,8 @@ import PhotoCollage from "@/components/ui/photo-collage"
 
 import { ArrowUpRight, CircleDot } from "lucide-react"
 import Link from "next/link"
+import CreatePrompt from "../generateImage/[userId]/page"
+import { auth } from "@clerk/nextjs"
 
 const MyHomePage = () => {
     
