@@ -3,19 +3,30 @@ import PhotoCollage from "@/components/ui/photo-collage"
 
 import { ArrowUpRight, CircleDot } from "lucide-react"
 import Link from "next/link"
+import CreatePrompt from "../generateImage/[userId]/page"
+import { auth } from "@clerk/nextjs"
 
 const MyHomePage = ({
     params
 }: {
-    params: { userId: string }
+    params: { userId: string } | { userId: null }
 }) => {
 
     console.log(params)
+
+    const userAuth = auth();
+
+    const userId = userAuth ? userAuth.userId : null;
+
+    console.log(userId);
+
+
     return (
         <div className="bg-zinc-0 px-8 xs:px-12 sm:px-16 md:px-24 lg:px-32 bg-zinc-950" >
-            <Link href={`/generateImage/${params.userId}`} className="title flex  py-4 text-lg text-white">
+            <Link href={`/generateImage/${userId}`} className="title flex  py-4 text-lg text-white">
                 <CircleDot className="mx-4" /> <span>Generate your AI Image</span><ArrowUpRight className="mx-1" />
             </Link>
+            {/* <CreatePrompt params={userId} /> */}
             <PromptForm />
             <Marketplace />
         </div>

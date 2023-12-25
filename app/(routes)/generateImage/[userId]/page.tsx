@@ -6,7 +6,7 @@ import Link from "next/link"
 const CreatePrompt = ({
     params
 }: {
-    params: { userId: string }
+    params: string | null
 }) => {
 
     console.log(params)
