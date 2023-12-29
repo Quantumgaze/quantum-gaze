@@ -1,32 +1,95 @@
 "use client"
 
-import { Input } from "@/components/ui/input"
-import Link from "next/link"
+import { useState } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from "@/app/styles/Home.module.css"
 
-const CreatePrompt = ({
-    params
-}: {
-    params: string | null
-}) => {
-
-    console.log(params)
-
-    return (
-        <>
-            <div className="top relative rounded-3xl m-8 ml-4 mb-4 border-2 border-zinc-600 pb-48">
-                <div className="m-8 text-black-300 text-2xl w-3/4 ">Generate your AI Image</div>
-                <h2 className="m-8 text-black-800 text-xl w-3/4 ">Title: </h2>
-                <Input className="m-9 w-3/4" />
-                <Link href={'/generateImage/:imageId'} className="absolute  flex items-center justify-center bottom-8 left-8 w-72 h-20 bg-sky-500 rounded-xl ">
-                    <span className='uppercase text-white text-xl'> Generate Image</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 ml-4 text-white rotate-45">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-
-                </Link>
-            </div>
-        </>
-    )
+interface Prediction {
+  id: string;
+  status: 'pending' | 'succeeded' | 'failed';
+  output?: string[];
+  detail?: string;
 }
 
-export default CreatePrompt
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+export default function Home() {
+  const [prediction, setPrediction] = useState<Prediction | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const response = await fetch('/api/predictions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        prompt: (e.target as HTMLFormElement).prompt.value,
+      }),
+    });
+
+    if (response.status !== 201) {
+      const errorData = await response.json();
+      setError(errorData.detail);
+      return;
+    }
+
+    const predictionData = await response.json() as Prediction;
+    setPrediction(predictionData);
+
+    while (
+      predictionData.status !== 'succeeded' &&
+      predictionData.status !== 'failed'
+    ) {
+      await sleep(1000);
+      const statusResponse = await fetch(`/api/predictions/${predictionData.id}`);
+
+      if (statusResponse.status !== 200) {
+        const errorData = await statusResponse.json();
+        setError(errorData.detail);
+        return;
+      }
+
+      const updatedPrediction = await statusResponse.json() as Prediction;
+      setPrediction(updatedPrediction);
+    }
+  };
+
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Replicate + Next.js</title>
+      </Head>
+
+      <p>
+        Dream something with{" "}
+        <a href="https://replicate.com/stability-ai/stable-diffusion">SDXL</a>:
+      </p>
+
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <input type="text" name="prompt" placeholder="Enter a prompt to display an image" />
+        <button type="submit">Go!</button>
+      </form>
+
+      {error && <div>{error}</div>}
+
+      {prediction && (
+        <div>
+            {prediction.output && (
+              <div className={styles.imageWrapper}>
+              <Image
+                fill
+                src={prediction.output[prediction.output.length - 1]}
+                alt="output"
+                sizes='100vw'
+              />
+              </div>
+            )}
+            <p>status: {prediction.status}</p>
+        </div>
+      )}
+    </div>
+  );
+}
