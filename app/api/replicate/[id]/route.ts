@@ -6,6 +6,8 @@ export async function GET(
     request: NextApiRequest,
     { params }: { params: { id: string } }
 ) {
+    console.log("https://api.replicate.com/v1/predictions/" + params.id);
+    
     const response = await fetch(
       "https://api.replicate.com/v1/predictions/" + params.id ,
       {
