@@ -1,9 +1,12 @@
 'use client';
-import React from 'react'
+import React, { useEffect } from 'react'
 export default function page({ params }: { params: { id: string } }) {
-  return (
+    useEffect(()=>{
+    
+    },[])
+    return (
     <div>
       {params.id}
     </div>
-  )
+    )
 }
