@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/clerk-sdk-node": "^4.13.4",
     "@clerk/nextjs": "^4.27.2",
     "@prisma/client": "^5.7.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-slot": "^1.0.2",
+    "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "embla-carousel-react": "^8.0.0-rc15",
@@ -21,7 +24,9 @@
     "prisma": "^5.7.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-redux": "^9.0.4",
     "react-textarea-autosize": "^8.5.3",
+    "svix": "^1.15.0",
     "tailwind-merge": "^2.1.0",
     "tailwindcss-animate": "^1.0.7"
   },
