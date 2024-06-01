@@ -1,3 +1,5 @@
+
+
 # Quantum Gaze
 
 Quantum Gaze is an AI prompt selling marketplace where users can create and sell their AI prompts. This platform is built with a modern tech stack to provide a seamless and secure experience for both prompt creators and buyers.
